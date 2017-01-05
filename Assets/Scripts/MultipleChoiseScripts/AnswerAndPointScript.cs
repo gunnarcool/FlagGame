@@ -16,7 +16,7 @@ public class AnswerAndPointScript : MonoBehaviour {
 
     void Start() {
         points.text = intPoints.ToString();
-        audioMusicParent = GameObject.Find("AudioParent");
+        audioMusicParent = GameObject.Find("SettingsParent");
     }
 
     void Update() {

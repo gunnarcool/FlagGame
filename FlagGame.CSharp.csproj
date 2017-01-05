@@ -52,9 +52,6 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -69,9 +66,6 @@
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
@@ -88,7 +82,8 @@
     <Compile Include="Assets\Scripts\MultipleChoiseScripts\ButtonScript.cs" />
     <Compile Include="Assets\Scripts\MultipleChoiseScripts\DifficultyScript.cs" />
     <Compile Include="Assets\Scripts\MultipleChoiseScripts\ImageScript.cs" />
-    <Compile Include="Assets\Scripts\MultipleChoiseScripts\MusicAndAudioScript.cs" />
+    <Compile Include="Assets\Scripts\MultipleChoiseScripts\SettingsParentScripts\BackButtonScript.cs" />
+    <Compile Include="Assets\Scripts\MultipleChoiseScripts\SettingsParentScripts\MusicAndAudioScript.cs" />
     <Compile Include="Assets\Scripts\MultipleChoiseScripts\WorldMap.cs" />
     <Compile Include="Assets\Scripts\MultipleChoiseScripts\simpleJSON.cs" />
     <Compile Include="Assets\Scripts\StartMenuScripts\AdManager.cs" />
