@@ -5,14 +5,18 @@ using UnityEngine.UI;
 
 public class ImageScript : MonoBehaviour {
     public Image img;
+    [SerializeField]
+    string difficulty;
     string flagName;
+    int flagNumber;
     Sprite[] sprites;
     List<string> usedFlagList = new List<string>() {"NoFlag", "NoFlag", "NoFlag" };
     int usedFlagInt = 0;
 
     // Use this for initialization
     void Start () {
-        string difficulty = GetComponent<DifficultyScript>().getDifficulty();
+
+        difficulty = GetComponent<DifficultyScript>().getDifficulty();
         if(difficulty == "World") {
             difficulty = "";
         }
@@ -29,13 +33,14 @@ public class ImageScript : MonoBehaviour {
     /// again for the next three turns.</para>
     /// </summary>
     public void getFlag() {
-        int rand = Random.Range(0, (sprites.Length - 1));
-        if(!usedFlagList.Contains(sprites[rand].name)) {
-            img.sprite = sprites[rand];
-            flagName = sprites[rand].name;
+        flagNumber = Random.Range(0, (sprites.Length - 1));
+        print(flagNumber);
+        if(!usedFlagList.Contains(sprites[flagNumber].name)) {
+            img.sprite = sprites[flagNumber];
+            flagName = sprites[flagNumber].name;
             print(flagName);
 
-            usedFlagList[usedFlagInt] = sprites[rand].name;
+            usedFlagList[usedFlagInt] = sprites[flagNumber].name;
             usedFlagInt++;
             if(usedFlagInt > 2) {
                 usedFlagInt = 0;

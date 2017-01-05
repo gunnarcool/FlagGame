@@ -9,6 +9,8 @@ public class ButtonScript : MonoBehaviour {
     Button[] butts;
     int correctAns;
     string flagName;
+    bool wasWrong = false;
+    Button selectedButt;
 
     //Called by ImageScript Start()
     public void Init (string flag) {
@@ -18,20 +20,32 @@ public class ButtonScript : MonoBehaviour {
         makeRandomNames();
     }
 
-    public void getChoices(Button selectedButt) {
-        checkCorrect(selectedButt);
+    public void checkCorrect(Button butt) {
+        if(wasWrong == true) {
+            wasWrong = false;
+            butts[correctAns].GetComponent<Image>().color = Color.white;
+            selectedButt.GetComponent<Image>().color = Color.white;
+            nextQuestion();
+        }
+        else if (butt.GetComponentInChildren<Text>().text == flagName.Replace("_", " ")) {
+            GetComponent<AnswerAndPointScript>().isCorrect();
+
+            nextQuestion();
+        }
+        else {
+            selectedButt = butt;
+            GetComponent<AnswerAndPointScript>().isWrong();
+            butts[correctAns].GetComponent<Image>().color = Color.green;
+            selectedButt.GetComponent<Image>().color = Color.red;
+            wasWrong = true;
+        }
+    }
+
+    void nextQuestion() {
+        GetComponent<ImageScript>().getFlag();
         flagName = GetComponent<ImageScript>().getFlagName();
         makeCorrectButt(flagName);
         makeRandomNames();
-    }
-
-    void checkCorrect(Button selectedButt) {
-        if (selectedButt.GetComponentInChildren<Text>().text == flagName.Replace("_", " ")) {
-            GetComponent<AnswerAndPointScript>().isCorrect();
-        }
-        else {
-            GetComponent<AnswerAndPointScript>().isWrong();
-        }
     }
 
     void makeCorrectButt(string flag) {
@@ -57,6 +71,4 @@ public class ButtonScript : MonoBehaviour {
             }
         }
     }
-
-
 }
