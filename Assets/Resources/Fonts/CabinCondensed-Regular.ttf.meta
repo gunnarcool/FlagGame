@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: d9f19ee6735e8a34ba5d57c16f6cdcdf
+timeCreated: 1482699573
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Cabin Condensed
+  fontNames:
+  - Cabin Condensed
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d75a1d8c724fe644fa3ea19a7ae53c37, type: 3}
+  - {fileID: 12800000, guid: ac84792f37ecdee4eb981aed0ad9ab33, type: 3}
+  - {fileID: 12800000, guid: 96ffc58f2553eb340a289138679f9890, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
