@@ -38,10 +38,10 @@ public class AdManager : MonoBehaviour {
     void AdCallbackhandler(ShowResult result) {
         switch (result) {
             case ShowResult.Finished:
-                Debug.Log("Ad Finished. Rewarding player...");
+                Debug.Log("Ad Finished.");
                 break;
             case ShowResult.Skipped:
-                Debug.Log("Ad skipped. Son, I am dissapointed in you");
+                Debug.Log("Ad skipped");
                 break;
             case ShowResult.Failed:
                 Debug.Log("I swear this has never happened to me before");
