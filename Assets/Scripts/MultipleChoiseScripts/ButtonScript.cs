@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour {
     [SerializeField]
-    Button butt1, butt2, butt3, butt4;
+    Button butt1, butt2, butt3, butt4, nextQuestionButt;
     Button[] butts;
     int correctAns;
     string flagName;
     bool wasWrong = false;
     Button selectedButt;
+
+    void Start() {
+        nextQuestionButt.gameObject.SetActive(false);
+    }
 
     //Called by ImageScript Start()
     public void Init (string flag) {
@@ -21,24 +25,36 @@ public class ButtonScript : MonoBehaviour {
     }
 
     public void checkCorrect(Button butt) {
-        if(wasWrong == true) {
-            wasWrong = false;
-            butts[correctAns].GetComponent<Image>().color = Color.white;
-            selectedButt.GetComponent<Image>().color = Color.white;
-            nextQuestion();
-        }
-        else if (butt.GetComponentInChildren<Text>().text == flagName.Replace("_", " ")) {
+        if (butt.GetComponentInChildren<Text>().text == flagName.Replace("_", " ")) {
             GetComponent<AnswerAndPointScript>().isCorrect();
-
             nextQuestion();
         }
         else {
+            wasWrong = true;
             selectedButt = butt;
             GetComponent<AnswerAndPointScript>().isWrong();
             butts[correctAns].GetComponent<Image>().color = Color.green;
             selectedButt.GetComponent<Image>().color = Color.red;
-            wasWrong = true;
+            nextQuestionButt.gameObject.SetActive(true);
+            
+            StartCoroutine(nextQuestionButtonTimer());
         }
+    }
+
+    //corutines stack :(
+    IEnumerator nextQuestionButtonTimer() {
+        yield return new WaitForSecondsRealtime(2);
+        if(wasWrong == true) {
+            nextQuestionButton();
+        }
+    }
+
+    public void nextQuestionButton() {
+        wasWrong = false;
+        nextQuestionButt.gameObject.SetActive(false);
+        butts[correctAns].GetComponent<Image>().color = Color.white;
+        selectedButt.GetComponent<Image>().color = Color.white;
+        nextQuestion();
     }
 
     void nextQuestion() {

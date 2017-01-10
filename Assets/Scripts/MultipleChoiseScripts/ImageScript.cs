@@ -34,7 +34,6 @@ public class ImageScript : MonoBehaviour {
     /// </summary>
     public void getFlag() {
         flagNumber = Random.Range(0, (sprites.Length - 1));
-        print(flagNumber);
         if(!usedFlagList.Contains(sprites[flagNumber].name)) {
             img.sprite = sprites[flagNumber];
             flagName = sprites[flagNumber].name;

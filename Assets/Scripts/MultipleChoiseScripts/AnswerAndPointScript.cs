@@ -11,7 +11,7 @@ public class AnswerAndPointScript : MonoBehaviour {
 
     int intPoints = 0;
     int tfAns = 0;
-    float lerpTime = 0;
+    float lerpTime = 0.5f;
     GameObject audioMusicParent;
 
     void Start() {
@@ -30,7 +30,7 @@ public class AnswerAndPointScript : MonoBehaviour {
 	
     public void isCorrect() {
         tfAns = 2;
-        lerpTime = 0;
+        lerpTime = 0.5f;
         intPoints++;
         points.text = intPoints.ToString();
         audioMusicParent.GetComponent<MusicAndAudioScript>().SFXPlayAnswer(true);
@@ -38,7 +38,7 @@ public class AnswerAndPointScript : MonoBehaviour {
 
     public void isWrong() {
         tfAns = 1;
-        lerpTime = 0;
+        lerpTime = 0.5f;
         audioMusicParent.GetComponent<MusicAndAudioScript>().SFXPlayAnswer(false);
     }
 
