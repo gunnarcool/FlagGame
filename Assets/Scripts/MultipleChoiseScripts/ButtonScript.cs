@@ -25,7 +25,9 @@ public class ButtonScript : MonoBehaviour {
     }
 
     public void checkCorrect(Button butt) {
+        disableButtons(false);
         if (butt.GetComponentInChildren<Text>().text == flagName.Replace("_", " ")) {
+            colorButtonsWhite();
             GetComponent<AnswerAndPointScript>().isCorrect();
             nextQuestion();
         }
@@ -41,6 +43,13 @@ public class ButtonScript : MonoBehaviour {
         }
     }
 
+    void disableButtons(bool isOn) {
+        foreach (Button butt in butts) {
+            var scr = butt.GetComponent<Button>();
+            scr.enabled = isOn;
+        }
+    }
+
     //corutines stack :(
     IEnumerator nextQuestionButtonTimer() {
         yield return new WaitForSecondsRealtime(2);
@@ -49,11 +58,16 @@ public class ButtonScript : MonoBehaviour {
         }
     }
 
+    void colorButtonsWhite() {
+        foreach (Button butt in butts) {
+            butt.GetComponent<Image>().color = Color.white;
+        }
+    }
+
     public void nextQuestionButton() {
         wasWrong = false;
         nextQuestionButt.gameObject.SetActive(false);
-        butts[correctAns].GetComponent<Image>().color = Color.white;
-        selectedButt.GetComponent<Image>().color = Color.white;
+        colorButtonsWhite();
         nextQuestion();
     }
 
@@ -62,6 +76,7 @@ public class ButtonScript : MonoBehaviour {
         flagName = GetComponent<ImageScript>().getFlagName();
         makeCorrectButt(flagName);
         makeRandomNames();
+        disableButtons(true);
     }
 
     void makeCorrectButt(string flag) {

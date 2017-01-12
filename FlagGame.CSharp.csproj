@@ -78,6 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\LoadingSceneScripts\LoadingScreenManager.cs" />
     <Compile Include="Assets\Scripts\MultipleChoiseScripts\AnswerAndPointScript.cs" />
     <Compile Include="Assets\Scripts\MultipleChoiseScripts\ButtonScript.cs" />
     <Compile Include="Assets\Scripts\MultipleChoiseScripts\DifficultyScript.cs" />
