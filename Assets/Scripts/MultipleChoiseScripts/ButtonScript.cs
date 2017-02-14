@@ -10,10 +10,12 @@ public class ButtonScript : MonoBehaviour {
     int correctAns;
     string flagName;
     bool wasWrong = false;
+    bool timeChallenge = false;
     Button selectedButt;
 
     void Start() {
         nextQuestionButt.gameObject.SetActive(false);
+        timeChallenge = GetComponent<DifficultyScript>().getTimeChallenge();
     }
 
     //Called by ImageScript Start()
@@ -38,8 +40,13 @@ public class ButtonScript : MonoBehaviour {
             butts[correctAns].GetComponent<Image>().color = Color.green;
             selectedButt.GetComponent<Image>().color = Color.red;
             nextQuestionButt.gameObject.SetActive(true);
-            
-            StartCoroutine(nextQuestionButtonTimer());
+
+            if(timeChallenge) {
+                nextQuestionButton();
+            }
+            else {
+                StartCoroutine(nextQuestionButtonTimer());
+            }
         }
     }
 

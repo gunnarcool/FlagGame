@@ -14,7 +14,7 @@ public class ImageScript : MonoBehaviour {
     int usedFlagInt = 0;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
 
         difficulty = GetComponent<DifficultyScript>().getDifficulty();
         if(difficulty == "World") {
@@ -50,11 +50,18 @@ public class ImageScript : MonoBehaviour {
         }
         
     }
-
+    /// <summary>
+    /// Return the name of current flag
+    /// </summary>
+    /// <returns>String</returns>
     public string getFlagName() {
         return flagName;
     }
 
+    /// <summary>
+    /// Returns a random flagName from current difficulty
+    /// </summary>
+    /// <returns>String</returns>
     public string getRandomFlagName() {
         return sprites[Random.Range(0, (sprites.Length - 1))].name;
     }

@@ -39,6 +39,7 @@ public class AnswerAndPointScript : MonoBehaviour {
     public void isWrong() {
         tfAns = 1;
         lerpTime = 0.5f;
+        GetComponent<TimeScript>().reduceTime(3);
         audioMusicParent.GetComponent<MusicAndAudioScript>().SFXPlayAnswer(false);
     }
 
@@ -62,5 +63,9 @@ public class AnswerAndPointScript : MonoBehaviour {
             lerpTime = 0;
             tfAns = 0;
         }
+    }
+
+    public int getPoints() {
+        return intPoints;
     }
 }

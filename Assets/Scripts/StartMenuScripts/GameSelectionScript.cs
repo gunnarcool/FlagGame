@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class GameSelectionScript : MonoBehaviour {
     [SerializeField]
-    Canvas menuCanvas, multipleChoiceCanvas;
+    Canvas menuCanvas, multipleChoiceCanvas, loadingCanvas;
 
     void Start() {
+        loadingCanvas.enabled = false;
         menuCanvas.enabled = true;
         multipleChoiceCanvas.enabled = false;
     }

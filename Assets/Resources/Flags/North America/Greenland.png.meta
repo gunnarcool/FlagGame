@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fe3629977ecac79489a23253f1befada
+guid: caa4738d7a6f44a45ab7f26a12e3ce26
 timeCreated: 1482535440
 licenseType: Free
 TextureImporter:
@@ -67,13 +67,13 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Android
-    maxTextureSize: 2048
-    textureFormat: -1
+    maxTextureSize: 512
+    textureFormat: 34
     textureCompression: 1
-    compressionQuality: 50
+    compressionQuality: 0
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
   spriteSheet:
     serializedVersion: 2
     sprites: []
