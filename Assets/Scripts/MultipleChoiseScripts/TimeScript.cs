@@ -17,7 +17,7 @@ public class TimeScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         endPanel.SetActive(false);
-        if (GetComponent<DifficultyScript>().getTimeChallenge()) {
+        if (GetComponent<DifficultyScript>().getTimeChallenge() == true) {
             timePanel.SetActive(true);
             StartCoroutine(StartCountdown(60));
         }
@@ -49,6 +49,4 @@ public class TimeScript : MonoBehaviour {
         endPanel.SetActive(true);
         endText.text = "You got " + GetComponent<AnswerAndPointScript>().getPoints() + " points";
     }
-
-
 }

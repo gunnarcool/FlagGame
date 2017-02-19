@@ -17,7 +17,7 @@ public class AdManager : MonoBehaviour {
         else {
             gameID = androidID;
         }
-        Advertisement.Initialize(gameID, false);//false = real ads
+        Advertisement.Initialize(gameID, true);
     }
 
     public void ShowAd(string zone = "") {
@@ -33,7 +33,7 @@ public class AdManager : MonoBehaviour {
         if (Advertisement.IsReady(zone))
             Advertisement.Show(zone, options);
     }
-
+    
     void AdCallbackhandler(ShowResult result) {
         switch (result) {
             case ShowResult.Finished:

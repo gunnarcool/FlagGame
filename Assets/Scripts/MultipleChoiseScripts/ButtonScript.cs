@@ -36,6 +36,9 @@ public class ButtonScript : MonoBehaviour {
         else {
             wasWrong = true;
             selectedButt = butt;
+            if(timeChallenge) {
+                GetComponent<TimeScript>().reduceTime(3);
+            }
             GetComponent<AnswerAndPointScript>().isWrong();
             butts[correctAns].GetComponent<Image>().color = Color.green;
             selectedButt.GetComponent<Image>().color = Color.red;
