@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\StartMenuScripts\GameSelectionScript.cs" />
     <Compile Include="Assets\Scripts\TypingGame\EndPanelScript.cs" />
     <Compile Include="Assets\Scripts\TypingGame\FlagScript.cs" />
+    <Compile Include="Assets\Scripts\TypingGame\InputGeneratorScript.cs" />
     <Compile Include="Assets\Scripts\TypingGame\KeyboardScript.cs" />
     <Compile Include="Assets\Scripts\TypingGame\MusicAndSFXScript.cs" />
     <Compile Include="Assets\Scripts\TypingGame\SubmitAnsScript.cs" />

@@ -9,6 +9,8 @@ public class FlagScript : MonoBehaviour {
     Image smallImg, bigImg;
     [SerializeField]
     GameObject flagCounter;
+    [SerializeField]
+    Canvas Canv;
     Sprite[] sprites;
     int flagNumber;
     string difficulty;
@@ -32,7 +34,11 @@ public class FlagScript : MonoBehaviour {
         smallImg.sprite = sprites[flagNumber];
         smallImg.preserveAspect = true;
         flagName = FormatFlagName(sprites[flagNumber].name);
+
+        Canv.GetComponent<InputGeneratorScript>().DeleteInput();
+        Canv.GetComponent<InputGeneratorScript>().GenerateInputButtons(flagName);
         print(flagName);
+        print(flagName.Length);
     }
 
     void GetFlagNumber() {

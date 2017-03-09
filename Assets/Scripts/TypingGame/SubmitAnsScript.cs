@@ -8,10 +8,10 @@ public class SubmitAnsScript : MonoBehaviour {
     [SerializeField]
     Canvas canv;
 
-	public void SubmitAns(InputField inputF) {
-        if(inputF.text == canv.GetComponent<FlagScript>().GetFlagName()) {
+	public void SubmitAns(string str) {
+        print(str + " : " + canv.GetComponent<FlagScript>().GetFlagName());
+        if(str == canv.GetComponent<FlagScript>().GetFlagName()) {
             print("Correct");
-            inputF.text = "";
             canv.GetComponent<FlagScript>().GetRandomFlag();
         }
         else {

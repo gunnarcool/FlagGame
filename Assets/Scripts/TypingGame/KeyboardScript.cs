@@ -8,29 +8,20 @@ public class KeyboardScript : MonoBehaviour {
     Canvas canv;
     [SerializeField]
     GameObject letters;
-    [SerializeField]
-    InputField inputF;
 
     Text[] letterArr;
     bool shiftOn = true;
 
     void Start() {
-        inputF.enabled = false;
         letterArr = letters.GetComponentsInChildren<Text>();
     }
 
 	public void LetterClick(Button butt) {
-        inputF.text = inputF.text + butt.GetComponentInChildren<Text>().text;
+        canv.GetComponent<InputGeneratorScript>().ChangeSelectedButtValue(butt.GetComponentInChildren<Text>().text);
     }
 
-    public void BackspaceClick() {
-        if(inputF.text.Length > 0) {
-            inputF.text = inputF.text.Remove(inputF.text.Length - 1);
-        }
-    }
-
-    public void SpaceClick() {
-        inputF.text = inputF.text + " ";
+    public void EraseClick() {
+        canv.GetComponent<InputGeneratorScript>().Erase();
     }
 
     public void SkipClick() {
@@ -38,7 +29,7 @@ public class KeyboardScript : MonoBehaviour {
     }
 
     public void SubmitClick() {
-        canv.GetComponent<SubmitAnsScript>().SubmitAns(inputF);
+        canv.GetComponent<SubmitAnsScript>().SubmitAns(canv.GetComponent<InputGeneratorScript>().GetWord());
     }
 
     public void ShiftClick() {
